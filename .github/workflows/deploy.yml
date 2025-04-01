@@ -1,0 +1,36 @@
+name: Deploy to Vercel
+
+on:
+  push:
+    branches:
+      - main  # mainブランチにプッシュされた時にproductionにデプロイ
+      - '*'   # その他のすべてのブランチに対してpreviewデプロイ
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: '16'  # 使用するNode.jsのバージョン
+
+      - name: Install dependencies
+        run: |
+          npm install
+
+      - name: Build project
+        run: |
+          npm run build  # TypeScriptをコンパイルするコマンド（tsc）を実行
+
+      - name: Deploy to Vercel
+        uses: amondnet/vercel-action@v20
+        with:
+          vercel-token: ${{ secrets.VERCEL_TOKEN }}  # VercelのAPIトークン
+          vercel-project-id: ${{ secrets.VERCEL_PROJECT_ID }}  # VercelのプロジェクトID
+          vercel-org-id: ${{ secrets.VERCEL_ORG_ID }}  # VercelのオーガニゼーションID
+          vercel-environment: ${{ github.ref == 'refs/heads/main' && 'production' || 'preview' }}  # mainならproduction、それ以外はpreview
