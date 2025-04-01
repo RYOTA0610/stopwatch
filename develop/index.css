@@ -3,7 +3,6 @@
     background-image: url(stopwatch.png);
     background-size: contain; /* 画像全体を収める */
     background-repeat: no-repeat; /* 画像を繰り返さない */
-    
     width: 480px;
     height: 540px;
     position: fixed;
@@ -21,7 +20,6 @@
     font: bold 70px / 1 "Arial", sans-serif;
     white-space: nowrap;
 }
-
 
 /*カウント表示部*/
 #count {
