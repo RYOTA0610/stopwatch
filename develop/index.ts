@@ -19,11 +19,35 @@ const elmReset: HTMLElement | null = document.querySelector("#reset");
 /*==============================
 イベントハンドラ
 ==============================*/
-//イベントハンドラを定義する
+
+//アプリケーション初期化
+const onPageLoad = () => {};
+
+//スタート処理
+const onStart = () => {};
+
+//リセット処理
+const onReset = () => {};
+
+
 /*==============================
 イベントリスナー
 ==============================*/
-//イベントリスナーを設定する
+
+//ページの読み込み完了イベント
+window.addEventListener("load", onPageLoad);
+
+//スタートボタンのクリックイベント
+if (elmStart !== null) {
+    elmStart.addEventListener("click", onStart);
+}
+
+//リセットボタンのクリックイベント
+if (elmReset !== null ) {
+    elmReset.addEventListener("click", onReset);
+}
+
+
 /*==============================
 ユーザー定義関数
 ==============================*/
