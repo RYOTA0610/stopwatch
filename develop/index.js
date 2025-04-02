@@ -88,4 +88,8 @@ function startTimer() {
 }
 //計測ストップ
 function stopTimer() {
+    //タイマーを停止---①
+    clearInterval(timerID);
+    //計測状態を「停止中」に変更---②
+    isRunning = false;
 }
