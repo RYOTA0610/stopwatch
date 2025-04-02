@@ -21,7 +21,10 @@ const elmReset: HTMLElement | null = document.querySelector("#reset");
 ==============================*/
 
 //アプリケーション初期化
-const onPageLoad = () => {};
+const onPageLoad = () => {
+    //描画を更新
+    updateView ();
+};
 
 //スタート処理
 const onStart = () => {};
@@ -51,4 +54,26 @@ if (elmReset !== null ) {
 /*==============================
 ユーザー定義関数
 ==============================*/
-//その他の自作関数を定義する
+
+//描画更新
+function updateView () {
+    //最大時間を超えない制限
+    if (timeCount > 60* 60* 1000 - 1) {
+        timeCount = 60* 60* 1000 - 1;
+    }
+	//timeCountの値を「分」に直す---①
+    const mm: string = Math.floor(timeCount /1000 / 60)
+    .toString().padStart(2,"0");
+	//timeCountの値を「秒」に直す---②
+    const ss: string = (Math.floor(timeCount / 1000) % 60)
+    .toString().padStart(2,"0")
+	//timeCountの値を「ミリ秒」に直す---③
+    const ms: string = (timeCount % 1000)
+    .toString().padStart(3,"0").slice(0,2);
+	//①②③をつないで「分：秒 ミリ秒」の形式にする---④
+    const count: string = mm + ":" + ss + "<small>" + ms + "</small>";
+	//カウント表示部に④を表示する---⑤
+    if (elmCount !== null) {
+        elmCount.innerHTML = count;
+    }
+}
