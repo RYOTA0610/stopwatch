@@ -27,7 +27,18 @@ const onPageLoad = () => {
 };
 
 //スタート処理
-const onStart = () => {};
+const onStart = () => {
+    //停止中の場合
+    if (isRunning === false) {
+        //タイマーを起動
+        startTimer();
+    }
+    //計測中の場合
+    else {
+        //タイマーを停止
+        stopTimer();
+    }
+};
 
 //リセット処理
 const onReset = () => {};
@@ -76,4 +87,21 @@ function updateView () {
     if (elmCount !== null) {
         elmCount.innerHTML = count;
     }
+}
+
+//計測スタート
+function startTimer() {
+    //指定された時間ごとにカウントを更新---①
+    timerID = setInterval(() => {
+        //経過時間を加算
+        timeCount += 10;
+        //描画を更新
+        updateView();
+    }, 10);
+    //計測状態を「計測中」に変更---②
+    isRunning = true;
+}
+//計測ストップ
+function stopTimer() {
+
 }
