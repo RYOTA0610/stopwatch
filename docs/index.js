@@ -35,7 +35,14 @@ const onStart = () => {
     }
 };
 //リセット処理
-const onReset = () => { };
+const onReset = () => {
+    //タイマーを停止---①
+    stopTimer();
+    //カウントをリセット---②
+    resetCount();
+    //描画を更新
+    updateView();
+};
 /*==============================
 イベントリスナー
 ==============================*/
@@ -92,4 +99,9 @@ function stopTimer() {
     clearInterval(timerID);
     //計測状態を「停止中」に変更---②
     isRunning = false;
+}
+//カウントをリセット
+function resetCount() {
+    //経過時間を初期化
+    timeCount = 0;
 }
