@@ -1,0 +1,24 @@
+{
+  "compilerOptions": {
+    /* 基本的なコンパイラオプション */
+    "target": "ES2022",          // 出力するJavaScriptのバージョンを指定します。
+    "module": "ESNext",          // モジュールの形式を指定します。import/exportがなくてもモダンな設定が推奨されます。
+    "sourceMap": false,           // ★ デバッグ用のソースマップ(.mapファイル)を生成します。開発効率が向上します。
+
+    /* 型チェック関連 (推奨設定) */
+    "strict": true,              // TypeScriptの厳格な型チェックをすべて有効にします。バグの早期発見に繋がります。
+    "esModuleInterop": true,     // CommonJSモジュールとの相互運用性を向上させます。将来ライブラリを使う際に役立ちます。
+    "forceConsistentCasingInFileNames": true, // ファイル名の大文字/小文字の区別を強制し、環境依存の問題を防ぎます。
+    "skipLibCheck": true,        // 依存ライブラリの型チェックをスキップし、コンパイルを高速化します (npm導入時に有効)。
+
+    /* モジュール解決 */
+    "moduleResolution": "node"   // モジュールをどのように探すかを指定します。標準的な'node'方式を使用します。
+  },
+  "include": [
+    "docs/**/*.ts"               // コンパイル対象のファイルを指定します (docsフォルダ以下の全.tsファイル)。
+  ],
+  "exclude": [
+    "node_modules"               // コンパイル対象から除外するフォルダを指定します (node_modulesフォルダ)。
+                                 // 現在フォルダがなくても、将来のために記述しておくのが標準的です。
+  ]
+}
