@@ -1,0 +1,49 @@
+/*ストップウォッチ*/
+#stopwatch {
+    background-image: url(stopwatch.png);
+    background-size: contain; /* 画像全体を収める */
+    background-repeat: no-repeat; /* 画像を繰り返さない */
+    width: 480px;
+    height: 540px;
+    position: fixed;
+    inset: 0;
+    margin: auto;
+}
+
+#display {
+    position: absolute;
+    top: 32%;
+    left: calc(50% - 0.5px); /* 1px左にずらす */
+    transform: translateX(-50%);
+    width: 280px;
+    height: 100px;
+    font: bold 70px / 1 "Arial", sans-serif;
+    white-space: nowrap;
+}
+
+/*カウント表示部*/
+#count {
+	position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 70px;
+}
+
+/*スタートボタン*/
+#start {
+    width: 100px;
+    height: 100px;
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+
+/*リセットボタン*/
+#reset {
+    width: 100px;
+    height: 100px;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
