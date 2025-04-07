@@ -84,6 +84,7 @@ stopwatch/
 │   ├── index.ts
 │   └── stopwatch.png
 ├── .gitignore
+├── package-lock.json   # (npm install によって生成されるロックファイル)
 ├── package.json        # npm パッケージ設定
 ├── README.md
 ├── tsconfig.json       # TypeScript コンパイラ設定
