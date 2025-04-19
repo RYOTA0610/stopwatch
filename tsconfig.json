@@ -9,6 +9,8 @@
     "esModuleInterop": true,     // CommonJSモジュールとの相互運用性を向上させます。将来ライブラリを使う際に役立ちます。
     "skipLibCheck": true,        // 依存ライブラリの型チェックをスキップし、コンパイルを高速化します (npm導入時に有効)。
     "forceConsistentCasingInFileNames": true, // ファイル名の大文字/小文字の区別を強制し、環境依存の問題を防ぎます。
+    "outDir": "./docs",     // コンパイル結果(.js)を docs フォルダ内に出力
+    "rootDir": "./docs"     // ソースコード(.ts)のルートを docs に設定 (オプション)
   },
   "include": [
     "docs/**/*.ts"               // コンパイル対象のファイルを指定します (docsフォルダ以下の全.tsファイル)。
